@@ -102,7 +102,7 @@ class HomeController extends Controller
         $payment->registration_id = $registration_id;
         $payment->payment_method = $request->payment_mode;
         $payment->reference = $request->reference;
-        $payment->transaction_id = $request->reference;
+        $payment->transaction_id = $request->trxid;
         $payment->bank_name = $request->bank_name;
         $payment->bank_branch = $request->bank_branch;
         $payment->bank_date = $request->bank_date;

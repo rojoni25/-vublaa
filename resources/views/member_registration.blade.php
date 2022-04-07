@@ -45,7 +45,7 @@
             <div class="mx-auto mt-5">
                 <a href="#" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
                     onclick="$('#formDiv').css('display','block'); $('#registrationInfoDiv').css('display','none');">
-                    Proceed
+                    I Understand and Continue
                 </a>
             </div>
         </div>
@@ -314,7 +314,7 @@
                                                 <option value="TT">TT</option>
                                             </select>
                                         </div>
-                                        <div class="md:w-2/3  px-3" id="ref" style="display: none;">
+                                        <div class="md:w-1/3  px-3" id="ref" style="display: none;">
                                             <label
                                                 class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
                                                 for="reference">
@@ -324,6 +324,17 @@
                                                 class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                                                 id="reference" name="reference" type="text"
                                                 placeholder="Reference of your Payment">
+                                        </div>
+                                        <div class="md:w-1/3  px-3" id="trx" style="display: none;">
+                                            <label
+                                                class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                                                for="trxid">
+                                                Transaction ID <span class="text-red-500 font-bold">*</span>
+                                            </label>
+                                            <input
+                                                class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                                                id="trxid" name="trxid" type="text"
+                                                placeholder="Transaction ID">
                                         </div>
                                         <div class="md:w-2/3  px-3" id="bank" style="display: none;">
                                             <label
@@ -584,10 +595,12 @@
 
         function displayPayment() {
             $('#ref').css('display', 'none');
+            $('#trx').css('display', 'none');
             $("#bank").css('display', 'none');
             $("#bankBranch").css('display', 'none');
             if ($("#payment_mode").find(':selected').attr('value') == 'Mobile Banking') {
                 $('#ref').css('display', 'block');
+                $('#trx').css('display', 'block');
             } else if ($("#payment_mode").find(':selected').attr('value') == 'Bank Deposit') {
                 $("#bank").css('display', 'block');
                 $("#bankBranch").css('display', 'flex');
